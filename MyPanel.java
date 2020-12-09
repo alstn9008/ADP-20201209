@@ -1,33 +1,16 @@
-
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 /**
  * Write a description of class MyPanel here.
  *
  * @author (2017210105 김민수, 2019315066 사사키야스오)
  * @version (2020.12.09)
  */
-public class MyPanel
+public class MyPanel extends JPanel implements ActionListener
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class MyPanel
-     */
     public MyPanel()
     {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+        
     }
 }
