@@ -13,8 +13,11 @@ public class MyPanel extends JPanel implements ActionListener
     JTextField tfDept;
     JTextField tfAddress;
     JTextArea taResult;
-    
+
+    JComboBox<String> gradeCombo;
     String[] grade = {"1학년", "2학년", "3학년", "4학년"};
+    String graderesult;
+
     JButton bAdd;
     JButton bClear;
     public MyPanel()
@@ -26,35 +29,44 @@ public class MyPanel extends JPanel implements ActionListener
         this.add(new JLabel("학과 "));
         tfDept = new JTextField("글로벌소프트웨어학과", 25);   
         this.add(tfDept);   
-        
+
         this.add(new JLabel("주소 "));
         tfAddress = new JTextField("아산시...", 25);
         this.add(tfAddress);
-        
-        JComboBox<String> gradeCombo = new JComboBox<String>(grade);
+
+        gradeCombo = new JComboBox<String>(grade);
         this.add(gradeCombo);
-        
+
         bAdd = new JButton("추가");
         bClear = new JButton("Clear");
         this.add(bAdd);
         this.add(bClear);
-        
-        taResult = new JTextArea(7, 35);
+
+        taResult = new JTextArea(7, 25);
         this.add(new JScrollPane(taResult));
-        
-        tfName.addActionListener(this);
-        tfDept.addActionListener(this);
-        tfAddress.addActionListener(this);
+
+        bAdd.addActionListener(this);
+        bClear.addActionListener(this);
+        gradeCombo.addActionListener(this);
     }
-    
+
     public void actionPerformed(ActionEvent e)
     {
-         tfName = (JTextField)e.getSource();
-         tfDept = (JTextField)e.getSource();
-         tfAddress = (JTextField)e.getSource();
-         
-         taResult.append(tfName.getText() + "\n" + tfDept.getText() + "\n" + 
-                         tfAddress.getText() + "\n" + 
-                         "------------------------------------------------------------" + "\n");
+        if(gradeCombo == e.getSource())
+        {
+            graderesult = gradeCombo.getSelectedItem().toString();
+        }
+
+        if(bAdd == e.getSource())
+        {
+            taResult.append("이름 : " + tfName.getText() + "\n" + "학과 : " + tfDept.getText() + "\n" + 
+                            "학년 : "+ graderesult + "\n" + "주소 : " + tfAddress.getText() + "\n" + 
+                            "------------------------------------------------------------" + "\n");
+        }
+
+        if(bClear == e.getSource())
+        {
+            taResult.setText("");
+        }
     }
 }
