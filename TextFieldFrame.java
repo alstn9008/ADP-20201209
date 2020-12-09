@@ -14,6 +14,7 @@ public class TextFieldFrame extends JFrame
         this.setTitle("과제#3(2017210105 김민수, 2019315066 사사키야스오");
         this.setSize(320, 400);
         
+        this.add(new MyPanel());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }

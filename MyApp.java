@@ -7,9 +7,8 @@
  */
 public class MyApp
 {
-    public MyApp()
+    public static void main(String[] args)
     {
         new TextFieldFrame();
     }
-    
 }
