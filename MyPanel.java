@@ -24,7 +24,7 @@ public class MyPanel extends JPanel implements ActionListener
         this.add(tfName);
 
         this.add(new JLabel("학과 "));
-        tfDept = new JTextField(" 글로벌소프트웨어학과", 25);   
+        tfDept = new JTextField("글로벌소프트웨어학과", 25);   
         this.add(tfDept);   
         
         this.add(new JLabel("주소 "));
@@ -39,12 +39,22 @@ public class MyPanel extends JPanel implements ActionListener
         this.add(bAdd);
         this.add(bClear);
         
-        taResult = new JTextArea(7, 20);
+        taResult = new JTextArea(7, 35);
         this.add(new JScrollPane(taResult));
+        
+        tfName.addActionListener(this);
+        tfDept.addActionListener(this);
+        tfAddress.addActionListener(this);
     }
     
     public void actionPerformed(ActionEvent e)
     {
-        
+         tfName = (JTextField)e.getSource();
+         tfDept = (JTextField)e.getSource();
+         tfAddress = (JTextField)e.getSource();
+         
+         taResult.append(tfName.getText() + "\n" + tfDept.getText() + "\n" + 
+                         tfAddress.getText() + "\n" + 
+                         "------------------------------------------------------------" + "\n");
     }
 }
